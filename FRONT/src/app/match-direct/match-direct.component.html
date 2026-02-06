@@ -1,0 +1,12 @@
+<h2>Direct : Match en cours - {{ homeTeamName }} VS {{ awayTeamName }} - MatchId: {{ matchId }} </h2>
+<ul class="goals-list">
+    <li *ngFor="let goal of goals" class="goal-entry">
+      <div class="goal-info">
+      <span class="goal-player">
+        ⚽️ {{ goal.joueur }}
+      </span>
+        <em class="goal-team">({{ goal.equipe }})</em>
+      </div>
+    </li>
+    <div *ngIf="celebrate" class="confetti">🎉🎉🎉</div>
+</ul>

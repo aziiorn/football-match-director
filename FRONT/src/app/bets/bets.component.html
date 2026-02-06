@@ -1,0 +1,49 @@
+<div class="wallet-summary">
+  💼 <strong>Mon portefeuille</strong><br>
+  💰 Gains : {{ totalGains | number:'1.2-2' }} € —
+  💸 Pertes : {{ totalPertes | number:'1.2-2' }} € —
+  🧾 Solde :
+  <span [ngClass]="{ 'positive': balance >= 0, 'negative': balance < 0 }">
+    {{ balance | number:'1.2-2' }} €
+  </span>
+</div>
+
+<div class="section" *ngIf="pendingBets.length > 0">
+  <h3 data-icon="🎀">Paris en attente</h3>
+  <ul class="bet-list">
+    <li *ngFor="let bet of pendingBets">
+      <span class="match-name">{{ getMatchLabel(bet.match) }}</span> —
+      <span class="bet-type">{{ formatBetType(bet.bet_type, bet.match) }}</span> —
+      <span class="bet-amount">💶 {{ bet.amount | number:'1.2-2' }} €</span> —
+      <span class="bet-odds">📈 {{ bet.odds_at_bet_time }}</span>
+    </li>
+  </ul>
+</div>
+
+<div class="section">
+  <h3 data-icon="✅">Paris gagnés</h3>
+  <ul *ngIf="wonBets.length > 0; else noWon" class="bet-list">
+    <li *ngFor="let bet of wonBets">
+      <span class="match-name">{{ getMatchLabel(bet.match) }}</span> —
+      <span class="bet-type">{{ formatBetType(bet.bet_type, bet.match) }}</span> —
+      <span class="bet-amount">💶 {{ bet.amount | number:'1.2-2' }} €</span> —
+      <span class="bet-odds">📈 {{ bet.odds_at_bet_time }}</span> —
+      <span class="bet-gain">💰 Gain : {{ bet.amount * bet.odds_at_bet_time | number:'1.2-2' }} €</span>
+    </li>
+  </ul>
+  <ng-template #noWon><p>Aucun pari gagné.</p></ng-template>
+</div>
+
+<div class="section">
+  <h3 data-icon="❌">Paris perdus</h3>
+  <ul *ngIf="lostBets.length > 0; else noLost" class="bet-list">
+    <li *ngFor="let bet of lostBets">
+      <span class="match-name">{{ getMatchLabel(bet.match) }}</span> —
+      <span class="bet-type">{{ formatBetType(bet.bet_type, bet.match) }}</span> —
+      <span class="bet-amount">💶 {{ bet.amount | number:'1.2-2' }} €</span> —
+      <span class="bet-odds">📈 {{ bet.odds_at_bet_time }}</span> —
+      <span class="bet-lost">💸 Perdu</span>
+    </li>
+  </ul>
+  <ng-template #noLost><p>Aucun pari perdu.</p></ng-template>
+</div>

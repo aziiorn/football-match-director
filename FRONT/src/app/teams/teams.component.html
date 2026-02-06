@@ -1,0 +1,9 @@
+<div class="section">
+    <h2 class="section-title" data-icon="⚽">Équipes</h2>
+    <ul class="card-list">
+        <li *ngFor="let team of teams" (click)="goToTeamDetails(team.id)">
+            <img [src]="getLogoSrc(team.name)" alt="{{ team.name }} logo" class="team-logo" />
+            {{ team.name }}
+        </li>
+    </ul>
+</div>

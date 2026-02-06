@@ -1,0 +1,50 @@
+:host {
+  display: block;
+  background: #121212;
+  color: #f4f4f4;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 2rem;
+}
+
+.select-container {
+  background: #1e1e1e;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 550px;
+  margin: 0 auto;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+}
+
+h2 {
+  font-size: 1.8rem;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+  label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #cccccc;
+  }
+
+  select {
+    padding: 0.75rem 1rem;
+    background: #2a2a2a;
+    color: #f4f4f4;
+    font-size: 1rem;
+    border: 1px solid #444;
+    border-radius: 6px;
+    transition: border-color 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: #d30000;
+    }
+  }
+}

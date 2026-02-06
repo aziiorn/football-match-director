@@ -1,0 +1,19 @@
+{
+  "name": "afc-richmond",
+  "private": true,
+  "scripts": {
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down -v",
+    "start:back": "cd BACK && npm install && npm start",
+    "wait:mysql": "node -e \"const mysql = require('mysql2');(async () => { const delay = ms => new Promise(r => setTimeout(r, ms)); while(true){ try { const c = mysql.createConnection({host:'127.0.0.1',port:3306,user:'root',password:'Root@1234'}); c.connect(err => { if(!err) process.exit(0); }); } catch(e) {} await delay(1000); } })()\"",
+    "wait:front": "node wait-front.js",
+    "reset": "yarn docker:down",
+    "start:all": "yarn docker:up && yarn wait:mysql && yarn wait:front && yarn start:back"
+  },
+  "devDependencies": {
+    "mysql2": "^3.14.2"
+  },
+  "dependencies": {
+    "yarn": "^1.22.22"
+  }
+}

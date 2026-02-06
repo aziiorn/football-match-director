@@ -1,0 +1,13 @@
+<div class="select-container">
+  <h2>Voir un match en direct</h2>
+
+  <div class="form-group">
+    <label for="matchSelect">Choisir un match :</label>
+    <select id="matchSelect" [(ngModel)]="selectedMatchId" (change)="goToLiveMatch()">
+      <option [value]="null" disabled selected>-- Sélectionner --</option>
+      <option *ngFor="let match of matches" [value]="match.id">
+        {{ match.homeTeamName }} vs {{ match.awayTeamName }} - {{ match.date | date:'shortDate' }}
+      </option>
+    </select>
+  </div>
+</div>

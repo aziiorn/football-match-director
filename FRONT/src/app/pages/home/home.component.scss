@@ -1,0 +1,94 @@
+:host {
+    display: block;
+    background: #121212;
+    color: #f4f4f4;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 2rem;
+}
+
+.section {
+    margin-bottom: 3rem;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+
+    &::before {
+        content: attr(data-icon);
+        font-size: 1.6rem;
+        margin-right: 0.5rem;
+    }
+}
+
+.card-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        background: #1e1e1e;
+        margin-bottom: 0.75rem;
+        padding: 1rem 1.2rem;
+        border-radius: 6px;
+        border-left: 5px solid #d30000;
+        transition: background 0.2s ease;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+
+        &:hover {
+            background: #272727;
+        }
+
+        strong {
+            color: #fff;
+        }
+
+        em {
+            font-style: italic;
+            color: #aaa;
+        }
+
+        .number,
+        .score {
+            background-color: #d30000;
+            color: #fff;
+            font-weight: bold;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+        }
+
+        .score {
+            font-weight: bold;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+            color: white;
+
+            &.win {
+                background-color: #00c853;
+            }
+
+            &.draw {
+                background-color: #ff9800;
+            }
+
+            &.lose {
+                background-color: #d30000;
+            }
+        }
+    }
+}
+
+.team-logo {
+    width: 24px;
+    height: 24px;
+    margin: 0 6px;
+    vertical-align: middle;
+}

@@ -1,0 +1,36 @@
+nav {
+    background-color: #333;
+    padding: 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    li {
+        display: inline-block;
+    }
+
+    a {
+        color: #fff;
+        text-decoration: none;
+        padding: 10px 15px;
+        border-radius: 4px;
+        transition: background 0.3s;
+    }
+
+    /* Survol des liens */
+    a:hover {
+        background-color: #555;
+    }
+
+    /* Style pour le lien actif */
+    .active {
+        background-color: #d30000;
+        color: white;
+    }
+}

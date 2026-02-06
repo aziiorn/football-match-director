@@ -1,0 +1,58 @@
+<div class="section">
+  <h2 class="section-title" data-icon="🔥">Matchs en direct – les paris s'enflamment !</h2>
+
+  <ul class="card-list">
+    <li *ngFor="let match of ongoingMatches">
+      <div class="match-header">
+        <div class="team-block">
+          <img [src]="getLogoSrc(getTeamName(match.home_team_id))" class="team-logo" />
+          <span class="team-name">{{ getTeamName(match.home_team_id) }}</span>
+          <span class="team-score">{{ match.homeTeamScore }}</span>
+        </div>
+
+        <span class="vs">vs</span>
+
+        <div class="team-block">
+          <span class="team-score">{{ match.awayTeamScore }}</span>
+          <span class="team-name">{{ getTeamName(match.away_team_id) }}</span>
+          <img [src]="getLogoSrc(getTeamName(match.away_team_id))" class="team-logo" />
+        </div>
+      </div>
+
+      <div class="odds live">
+        <span class="odd-box win">🏠 {{ match.odds?.home_win || '-' }}</span>
+        <span class="odd-box draw">🤝 {{ match.odds?.draw || '-' }}</span>
+        <span class="odd-box lose">🚩 {{ match.odds?.away_win || '-' }}</span>
+      </div>
+
+      <div class="bet-button">
+        <button (click)="placeBet(match.id)">Parier en live</button>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2 class="section-title" data-icon="📅">Matchs à venir – Préparez vos paris</h2>
+
+  <ul class="card-list">
+    <li *ngFor="let match of upcomingMatches">
+      <div class="match-header">
+        <img [src]="getLogoSrc(getTeamName(match.home_team_id))" class="team-logo" />
+        {{ getTeamName(match.home_team_id) }} vs {{ getTeamName(match.away_team_id) }}
+        <img [src]="getLogoSrc(getTeamName(match.away_team_id))" class="team-logo" />
+        <span class="match-date">{{ match.date }}</span>
+      </div>
+
+      <div class="odds">
+        <span class="odd-box win">🏠 {{ match.odds?.home_win || '-' }}</span>
+        <span class="odd-box draw">🤝 {{ match.odds?.draw || '-' }}</span>
+        <span class="odd-box lose">🚩 {{ match.odds?.away_win || '-' }}</span>
+      </div>
+
+      <div class="bet-button">
+        <button (click)="placeBet(match.id)">Parier</button>
+      </div>
+    </li>
+  </ul>
+</div>

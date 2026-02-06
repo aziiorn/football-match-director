@@ -1,0 +1,242 @@
+:host {
+    display: block;
+    background: #121212;
+    color: #f4f4f4;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 2rem;
+}
+
+.admin-page {
+    background: #1e1e1e;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    max-width: 600px;
+    margin: 0 auto;
+    border: 1px solid #333;
+
+    h2 {
+        font-size: 2rem;
+        font-weight: 600;
+        color: #d30000;
+        margin-bottom: 1.5rem;
+    }
+
+    label {
+        display: block;
+        font-size: 1rem;
+        color: #f4f4f4;
+        margin-bottom: 0.5rem;
+    }
+
+    select {
+        width: 100%;
+        padding: 0.8rem 1.2rem;
+        background-color: #272727;
+        color: #fff;
+        border: 1px solid #444;
+        border-radius: 4px;
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+        appearance: none;
+        transition: all 0.3s ease;
+
+        option {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+        }
+
+        &:focus {
+            border-color: #d30000;
+            background-color: #333;
+        }
+    }
+
+    .section-title {
+        font-size: 1.4rem;
+        font-weight: bold;
+        color: #fff;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+
+        &::before {
+            content: attr(data-icon);
+            font-size: 1.4rem;
+            margin-right: 0.5rem;
+        }
+    }
+
+    .section {
+        margin-bottom: 2rem;
+    }
+
+    button,
+    a.btn-primary {
+        display: inline-block;
+        box-sizing: border-box;
+        vertical-align: middle;
+        white-space: nowrap;
+        text-decoration: none;
+        cursor: pointer;
+        font: inherit;
+        font-weight: 600;
+        font-size: 1rem;
+        line-height: 1.5;
+        text-align: center;
+        padding: 1rem 2rem;
+        width: 100%;
+        background-color: #d30000;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        transition: background-color 0.3s ease;
+        margin-top: 1rem;
+
+        &:hover {
+            background-color: #c00000;
+        }
+
+        &:active {
+            background-color: #a10000;
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .card-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            background: #1e1e1e;
+            margin-bottom: 0.75rem;
+            padding: 1rem 1.2rem;
+            border-radius: 6px;
+            border-left: 5px solid #d30000;
+            transition: background 0.2s ease;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+
+            &:hover {
+                background: #272727;
+            }
+
+            strong {
+                color: #fff;
+            }
+
+            em {
+                font-style: italic;
+                color: #aaa;
+            }
+
+            .number,
+            .score {
+                background-color: #d30000;
+                color: #fff;
+                font-weight: bold;
+                padding: 2px 8px;
+                border-radius: 4px;
+                margin-left: 0.5rem;
+            }
+
+            .score {
+                font-weight: bold;
+                padding: 2px 8px;
+                border-radius: 4px;
+                margin-left: 0.5rem;
+                color: white;
+
+                &.win {
+                    background-color: #00c853;
+                }
+
+                &.draw {
+                    background-color: #ff9800;
+                }
+
+                &.lose {
+                    background-color: #d30000;
+                }
+            }
+        }
+    }
+}
+
+.team-logo {
+    width: 24px;
+    height: 24px;
+    margin: 0 6px;
+    vertical-align: middle;
+}
+
+.status-box {
+  background: #1e1e1e;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  max-width: 600px;
+  margin: 2rem auto 0 auto;
+  border: 1px solid #333;
+
+  label {
+    display: block;
+    font-size: 1rem;
+    color: #f4f4f4;
+    margin-top: 1rem;
+  }
+
+  select {
+    width: 100%;
+    padding: 0.8rem 1.2rem;
+    background-color: #272727;
+    color: #fff;
+    border: 1px solid #444;
+    border-radius: 4px;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    appearance: none;
+
+    option {
+      background-color: #333;
+      color: #fff;
+    }
+
+    &:focus {
+      border-color: #d30000;
+      background-color: #333;
+    }
+  }
+
+  button {
+    width: 100%;
+    background-color: #d30000;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 1rem 2rem;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+
+    &:hover {
+      background-color: #c00000;
+    }
+
+    &:disabled {
+      background-color: #444;
+      cursor: not-allowed;
+    }
+  }
+
+  .success-message {
+    margin-top: 1rem;
+    color: #00e676;
+    font-weight: bold;
+  }
+}

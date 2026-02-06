@@ -1,0 +1,35 @@
+{
+  "name": "tp1",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "jest"
+  },
+  "author": "fabien.burguion",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "ioredis": "^5.6.0",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.13.0",
+    "sequelize": "^6.37.6",
+    "socket.io": "^4.8.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "jest": {
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
+    "testEnvironment": "node"
+  }
+}

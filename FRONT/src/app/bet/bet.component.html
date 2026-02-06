@@ -1,0 +1,55 @@
+<div class="bet-container" *ngIf="match">
+  <div class="match-header">
+    <h2>
+      {{ getTeamName(match.home_team_id) }}
+      <ng-container *ngIf="isScoreVisible(); else noScore">
+    <span class="score">
+      {{ match.homeTeamScore }} - {{ match.awayTeamScore }}
+    </span>
+      </ng-container>
+      <ng-template #noScore>
+        <span class="separator"> - </span>
+      </ng-template>
+      {{ getTeamName(match.away_team_id) }}
+    </h2>
+  </div>
+
+  <div class="section-block odds-row" *ngIf="match?.odds">
+    <div class="odd-line">
+      <span class="label">🏠 {{ getTeamName(match.home_team_id) }}</span>
+      <span class="odd-box win">{{ match.odds.home_win }}</span>
+    </div>
+    <div class="odd-line">
+      <span class="label">🤝 Match nul</span>
+      <span class="odd-box draw">{{ match.odds.draw }}</span>
+    </div>
+    <div class="odd-line">
+      <span class="label">🚩 {{ getTeamName(match.away_team_id) }}</span>
+      <span class="odd-box lose">{{ match.odds.away_win }}</span>
+    </div>
+  </div>
+
+  <form (ngSubmit)="submitBet()" class="bet-form">
+    <div class="section-block">
+      <label for="result">Choisissez le résultat :</label>
+      <select id="result" [(ngModel)]="betType" name="betType" required>
+        <option value="home_win">Victoire {{ getTeamName(match.home_team_id) }}</option>
+        <option value="draw">Match nul</option>
+        <option value="away_win">Victoire {{ getTeamName(match.away_team_id) }}</option>
+      </select>
+    </div>
+
+    <div class="section-block">
+      <label for="amount">Montant du pari (€) :</label>
+      <input type="number" id="amount" [(ngModel)]="amount" name="amount" required min="1" />
+    </div>
+
+    <div class="section-block">
+      <button type="submit">💸 Valider le pari</button>
+    </div>
+  </form>
+</div>
+
+<div *ngIf="betSuccessMessage" class="bet-message" [class.error]="betError">
+  {{ betSuccessMessage }}
+</div>

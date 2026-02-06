@@ -1,0 +1,68 @@
+:host {
+  display: block;
+  background: #121212;
+  color: #f4f4f4;
+  min-height: 100vh;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.section {
+  background: #1e1e1e;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border-radius: 8px;
+  color: white;
+}
+
+h3[data-icon]::before {
+  content: attr(data-icon) " ";
+}
+
+.bet-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #333;
+    font-size: 1rem;
+    color: #f4f4f4;
+
+    .match-name {
+      font-weight: bold;
+    }
+
+    .bet-type {
+      color: #ffc107;
+    }
+
+    .bet-amount {
+      color: #03a9f4;
+    }
+
+    .bet-odds {
+      color: #9c27b0;
+    }
+  }
+}
+
+.wallet-summary {
+  background: #2a2a2a;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  color: #f0f0f0;
+
+  .positive {
+    color: #00e676;
+    font-weight: bold;
+  }
+
+  .negative {
+    color: #ff5252;
+    font-weight: bold;
+  }
+}

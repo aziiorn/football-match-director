@@ -1,0 +1,12 @@
+<div class="section">
+    <h2 class="section-title">Tous les joueurs</h2>
+
+    <input type="text" [(ngModel)]="searchQuery" (input)="filterPlayers()" placeholder="Rechercher par nom ou club"
+        class="search-input" />
+
+    <ul class="card-list">
+        <li *ngFor="let player of filteredPlayers" (click)="goToPlayerDetails(player.id)">
+            <strong>{{ player.name }}</strong> - {{ getTeamName(player.team_id) }}
+        </li>
+    </ul>
+</div>

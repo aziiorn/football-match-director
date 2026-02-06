@@ -1,0 +1,63 @@
+<div class="section">
+  <h2 class="section-title">Matchs à venir pour {{ team.name }}</h2>
+  <ul class="card-list">
+    <li *ngFor="let match of upcomingMatches">
+      {{ match.date }} –
+      <em>
+        <img [src]="getLogoSrc(match.homeTeamName)" class="team-logo" />
+        {{ match.homeTeamName }}
+        vs
+        <img [src]="getLogoSrc(match.awayTeamName)" class="team-logo" />
+        {{ match.awayTeamName }}
+      </em>
+    </li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2 class="section-title">Matchs en cours pour {{ team.name }}</h2>
+  <ul class="card-list">
+    <li *ngFor="let match of ongoingMatches">
+      {{ match.date }} –
+      <em>
+        <img [src]="getLogoSrc(match.homeTeamName)" class="team-logo" />
+        {{ match.homeTeamName }}
+        vs
+        <img [src]="getLogoSrc(match.awayTeamName)" class="team-logo" />
+        {{ match.awayTeamName }}
+      </em>
+      <span *ngIf="match.homeTeamScore !== null && match.awayTeamScore !== null"
+            [ngClass]="getScoreClass(match)">
+        {{ match.homeTeamScore }} - {{ match.awayTeamScore }}
+      </span>
+    </li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2 class="section-title">Matchs terminés pour {{ team.name }}</h2>
+  <ul class="card-list">
+    <li *ngFor="let match of finishedMatches" [ngClass]="getScoreClass(match)">
+      {{ match.date }} –
+      <em>
+        <img [src]="getLogoSrc(match.homeTeamName)" class="team-logo" />
+        {{ match.homeTeamName }}
+        vs
+        <img [src]="getLogoSrc(match.awayTeamName)" class="team-logo" />
+        {{ match.awayTeamName }}
+      </em> :
+      <span [ngClass]="getScoreClass(match)">
+        {{ match.homeTeamScore }} - {{ match.awayTeamScore }}
+      </span>
+    </li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2 class="section-title">Joueurs de {{ team.name }}</h2>
+  <ul class="card-list">
+    <li *ngFor="let player of players" (click)="goToPlayerDetails(player.id)">
+      {{ player.name }} – {{ player.position }}
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,56 @@
+<div class="admin-page">
+    <h2>Publier un but</h2>
+
+    <label for="team">Choisir l'équipe qui a marqué :</label>
+    <select [(ngModel)]="selectedTeam" (change)="onTeamSelected()">
+        <option *ngFor="let team of teams" [ngValue]="team">{{ team.name }}</option>
+    </select>
+
+    <div *ngIf="matches.length > 0">
+        <label for="match">Choisir un match :</label>
+        <select [(ngModel)]="selectedMatch" (change)="onMatchSelected()">
+            <option *ngFor="let match of matches" [ngValue]="match">
+                {{ match.homeTeamName }} vs {{ match.awayTeamName }} - {{ match.date }}
+            </option>
+        </select>
+    </div>
+
+    <div *ngIf="players.length > 0">
+        <label for="player">Choisir le joueur qui a marqué :</label>
+        <select [(ngModel)]="selectedPlayer">
+            <option *ngFor="let player of players" [value]="player.id">{{ player.name }}</option>
+        </select>
+    </div>
+
+  <button [disabled]="!selectedMatch" (click)="publishGoal()">Publier le but</button>
+
+    <div *ngIf="selectedMatch">
+        <a [routerLink]="['/match/direct', selectedMatchId]" class="btn btn-primary">
+            Voir le match en direct
+        </a>
+    </div>
+    <div *ngIf="successMessage" class="success-message">
+      {{ successMessage }}
+    </div>
+</div>
+
+<div class="status-box">
+  <h2 class="section-title" data-icon="⚙️">Changer le statut d’un match</h2>
+
+  <label>Sélectionner un match :</label>
+  <select [(ngModel)]="statusMatch" (ngModelChange)="onStatusMatchSelected($event)">
+    <option *ngFor="let match of allMatches" [ngValue]="match">
+      {{ match.homeTeamName }} vs {{ match.awayTeamName }} - {{ match.date }} ({{ getStatusLabel(match.status) }})
+    </option>
+  </select>
+
+  <div *ngIf="statusMatch && (statusMatch.status === 'upcoming' || statusMatch.status === 'ongoing')">
+    <button (click)="updateMatchStatus()">
+      {{ statusMatch.status === 'upcoming' ? '▶️ Commencer le match' : '✅ Terminer le match' }}
+    </button>
+  </div>
+
+  <div *ngIf="statusMessage" class="success-message">
+    {{ statusMessage }}
+  </div>
+</div>

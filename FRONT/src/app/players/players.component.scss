@@ -1,0 +1,57 @@
+:host {
+    display: block;
+    background: #121212;
+    color: #f4f4f4;
+    padding: 2rem;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1.5rem;
+    border-radius: 6px;
+    border: 1px solid #444;
+    background-color: #1e1e1e;
+    color: white;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+
+    &::placeholder {
+        color: #aaa;
+    }
+
+    &:focus {
+        outline: none;
+        border-color: #d30000;
+    }
+}
+
+.card-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        background: #1e1e1e;
+        margin-bottom: 0.75rem;
+        padding: 1rem 1.2rem;
+        border-radius: 6px;
+        border-left: 5px solid #d30000;
+        transition: background 0.2s ease;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+        cursor: pointer;
+
+        &:hover {
+            background: #272727;
+        }
+
+        strong {
+            color: #fff;
+        }
+
+        em {
+            font-style: italic;
+            color: #aaa;
+        }
+    }
+}
