@@ -14,7 +14,7 @@ Voici un aperçu de l'interface :
 |------|------|
 | ![](docs/screenshot-home.png) | ![](docs/screenshot-bets.png) |
 
-[Démo](https://youtu.be/J1AIO0X46Bk)
+[Démo Vidéo](https://youtu.be/J1AIO0X46Bk)
 
 ## Fonctionnalités clés
 
@@ -34,11 +34,9 @@ Pour lancer le projet, vous devez avoir installé :
 
 ## Installation et lancement
 
-Cloner le dépôt ou télécharger les fichiers.
-
-1. Se placer dans le projet
+1. Cloner et se placer dans le projet
 ```bash
-cd football-match-director
+git@github.com:AziiBoRn/football-match-director.git && cd football-match-director
 ```
 
 2. Créer le fichier `.env`
