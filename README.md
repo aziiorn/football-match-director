@@ -10,18 +10,19 @@ Un admin pourra lancer ou arrêter un match, ainsi qu'ajouter des buts.
 ## Aperçu visuel
 Voici un aperçu de l'interface :
 
-![screenshot](docs/screenshot-home.png)
-![screenshot](docs/screenshot-bets.png)
+| Home | Bets |
+|------|------|
+| ![](docs/screenshot-home.png) | ![](docs/screenshot-bets.png) |
 
-## 🧩 Fonctionnalités clés
+[Démo](https://youtu.be/J1AIO0X46Bk)
 
-- 🔐 Authentification JWT avec rôles (admin / user)
-- 📅 Gestion des matchs (CRUD, live updates)
-- 👤 Gestion des joueurs et équipes
-- 🎲 Système de paris sportifs (avec cotes dynamiques)
-- ⚡ Notifications en temps réel (WebSocket / Redis)
-- 🧠 Cache Redis pour booster les performances
-- 📖 Documentation Swagger auto-générée
+## Fonctionnalités clés
+
+- Gestion des matchs, joueurs et équipe
+- Système de paris sportifs (avec cotes dynamiques)
+- Authentification JWT avec rôles (admin / user)
+- Notifications en temps réel (WebSocket / Redis)
+(cache redis et swagger auto-générée)
 
 ## Prérequis
 
@@ -30,15 +31,8 @@ Pour lancer le projet, vous devez avoir installé :
 - Node.js dans sa version LTS (≥ 22.15.0 et < 23.X.X)
 - Docker
 - Yarn
-- Un fichier `.env` dans `/BACK`
-
-```bash
-JWT_SECRET=super-secret-key
-```
 
 ## Installation et lancement
-
-Une fois les prérequis installés, il suffit d’exécuter cette commande **à la racine du projet** :
 
 Cloner le dépôt ou télécharger les fichiers.
 
@@ -47,43 +41,32 @@ Cloner le dépôt ou télécharger les fichiers.
 cd football-match-director
 ```
 
-2. Installation des dépendances
+2. Créer le fichier `.env`
+  
+Linux / Mac / Git Bash : `echo "JWT_SECRET=super-secret-key" > BACK/.env`  
+Powershell : `"JWT_SECRET=super-secret-key" | Out-File -Encoding utf8 BACK/.env`  
+
+3. Installation des dépendances et démarrage
 ```bash
-yarn install
+yarn install && yarn start:all
 ```
-
-3. Démarrage de l'infrastructure et des microservices
-```bash
-yarn start:all
-```
-
-Cela va automatiquement :
-
-- Lancer les conteneurs Docker (MySQL, Redis, Angular)
-- Attendre que la base de données **MySQL** soit complètement prête
-- Démarrer le backend **Node** situé dans `BACK/`
-- Lancer le frontend **Angular**
+(lancer Docker, puis démarraer le back et le front)
 
 ## C'est parti !
 Se rendre sur http://localhost:5173/
 
 Le backend sera disponible sur: http://localhost:8080
-
 Et le swagger sur : http://localhost:8080/api-docs
 
 
 ## Utilisateurs de test
-
-Lors de l'initialisation automatique de la base de données (via `init.sql`), **deux utilisateurs sont créés** :
 
 | Identifiant | Mot de passe | Rôle  |
 |-------------|--------------|-------|
 | `admin`     | `admin`      | admin |
 | `user`      | `user`       | user  |
 
-Ces comptes permettent de tester rapidement l'authentification et les rôles dans l'application.
-
-Utilisez ces identifiants dans `/login` pour accéder aux pages protégées selon le rôle.
+Utilisez ces identifiants dans `/login`.
 
 ## Commandes Utiles
 
@@ -96,14 +79,6 @@ Pour réinitialiser les conteneurs et les données de la base mysql et de redis 
 ```bash
 yarn reset
 ```
-
-## Initialisation automatique de la base de données
-
-À la racine du projet, un dossier `mysql-init/` contient un fichier `init.sql` permettant d'initialiser automatiquement la base de données MySQL avec des données de base (ex : joueurs, matchs, etc.).
-
-Ce fichier est monté automatiquement dans le conteneur MySQL via `docker-compose.yml`, et est exécuté à la première création du volume.
-
-⚠️ Le script ne sera **réexécuté que si le volume MySQL est supprimé**.
 
 ## Configuration
 
