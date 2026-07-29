@@ -1,20 +1,8 @@
 # Footbal Match Director
 
-Un projet pour gérer des joueurs et des matchs de football.
+Un projet pour gérer des matchs de football et des paris.
 
-Tout utilisateur pourra voir les matchs en cours, avec actualisation en live, les anciens matchs, les joueurs ainsi que leurs joueurs respectifs.
-Il pourra aussi parier sur des matchs.
-
-Un admin pourra lancer ou arrêter un match, ainsi qu'ajouter des buts.
-
-## Aperçu visuel
-Voici un aperçu de l'interface :
-
-| Home | Bets |
-|------|------|
-| ![](docs/screenshot-home.png) | ![](docs/screenshot-bets.png) |
-
-[Démo Vidéo](https://youtu.be/J1AIO0X46Bk)
+<img width="800px" src="football-match-director.gif">
 
 ## Fonctionnalités clés
 
