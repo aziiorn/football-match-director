@@ -24,7 +24,7 @@ Pour lancer le projet, vous devez avoir installé :
 
 1. Cloner et se placer dans le projet
 ```bash
-git@github.com:AziiBoRn/football-match-director.git && cd football-match-director
+git clone git@github.com:aziiorn/football-match-director.git && cd football-match-director
 ```
 
 2. Créer le fichier `.env`
